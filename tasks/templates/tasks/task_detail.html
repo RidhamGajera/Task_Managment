@@ -1,0 +1,25 @@
+<!-- tasks/templates/tasks/task_detail.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task Detail</title>
+</head>
+<body>
+    <h1>Task Detail</h1>
+    
+    <p><strong>Title:</strong> {{ task.title }}</p>
+    <p><strong>Description:</strong> {{ task.description }}</p>
+    <p><strong>Deadline:</strong> {{ task.deadline }}</p>
+    <p><strong>Assigned To:</strong> {{ task.assigned_to }}</p>
+    <p><strong>Completed:</strong> {% if task.completed %}Yes{% else %}No{% endif %}</p>
+    
+    <a href="{% url 'task_list' %}">Back to Task List</a> |
+    <a href="{% url 'task_update' task.pk %}">Update Task</a> |
+    <form action="{% url 'task_delete' task.pk %}" method="post" style="display: inline;">
+        {% csrf_token %}
+        <button type="submit">Delete Task</button>
+    </form>
+</body>
+</html>

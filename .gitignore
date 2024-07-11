@@ -1,0 +1,15 @@
+# .gitignore
+
+# Django-related
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+
+# Docker
+docker-compose.yml
+Dockerfile
+.vscode/
+.idea/
+venv
